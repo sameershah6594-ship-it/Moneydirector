@@ -1,3 +1,4 @@
+import NativeAd from '../components/NativeAd';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Search, TrendingUp, TrendingDown, Calculator, ShieldCheck, Target, Award, Users, BookOpen, ArrowRight, Check, Clock } from 'lucide-react';
@@ -62,6 +63,7 @@ export function HomePage() {
   return (
     <div>
       {/* Hero */}
+      <NativeAd />
       <section className="relative overflow-hidden bg-gradient-to-br from-brand-50 via-white to-accent-50 dark:from-ink-900 dark:via-ink-950 dark:to-ink-900 py-16 sm:py-24">
         <div className="absolute inset-0 opacity-30 dark:opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(47,129,254,0.15), transparent 50%), radial-gradient(circle at 80% 80%, rgba(16,185,129,0.15), transparent 50%)' }} />
         <div className="container-wide relative">
