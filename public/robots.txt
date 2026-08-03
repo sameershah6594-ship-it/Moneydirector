@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# When deploying to a custom domain, update this URL
+Sitemap: https://moneydirector.com/sitemap.xml
