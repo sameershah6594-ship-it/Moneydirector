@@ -1,3 +1,5 @@
+import NativeAd from '../components/NativeAd';
+import Banner728 from '../components/Banner728';
 import { useState, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { RotateCcw, Copy, Check, Calculator as CalcIcon, ChevronRight } from 'lucide-react';
@@ -21,6 +23,8 @@ export function CalculatorPage() {
 
   return (
     <div className="container-wide py-8 sm:py-12">
+      <Banner728 />
+<NativeAd />
       <nav className="flex items-center gap-1.5 text-xs text-ink-400 mb-6">
         <Link to="/" className="hover:text-brand-500">Home</Link><ChevronRight size={14} />
         <Link to="/calculators" className="hover:text-brand-500">Calculators</Link><ChevronRight size={14} />
