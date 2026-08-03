@@ -2,13 +2,9 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { fileURLToPath, URL } from 'node:url';
 
-// For GitHub Pages, the base path needs to be the repo name.
-// When deploying to a custom domain or root path, set VITE_BASE_URL="/" in your environment.
-const baseUrl = process.env.VITE_BASE_URL || '/';
-
 // https://vitejs.dev/config/
 export default defineConfig({
-  base: baseUrl,
+  base: '/',
   plugins: [react()],
   resolve: {
     alias: {
