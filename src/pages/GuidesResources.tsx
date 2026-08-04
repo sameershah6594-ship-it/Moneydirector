@@ -1,3 +1,4 @@
+import AdBanner from '@/components/AdBanner';
 import { Link } from 'react-router-dom';
 import { useDocumentMeta } from '@/hooks/useDocumentMeta';
 import { ArticleCardGrid } from '@/components/ArticleCard';
@@ -18,6 +19,28 @@ export function GuidesPage() {
         <h2 className="text-xl font-bold mb-2">Try Our Calculators</h2>
         <p className="text-brand-50 mb-4">Apply what you learn with our free financial calculators.</p>
         <Link to="/calculators" className="inline-flex items-center gap-2 bg-white text-brand-700 px-5 py-2.5 rounded-xl font-semibold text-sm hover:bg-brand-50 transition-colors">View Calculators <ArrowRight size={16} /></Link>
+      </div>
+
+      {/* All Ad Banners Group */}
+      <div className="space-y-6 my-8">
+        <div className="flex justify-center">
+          <AdBanner adKey="c060f5177a7056171ced5eb7d122263b" width={728} height={90} />
+        </div>
+        <div className="flex justify-center">
+          <AdBanner adKey="a5c311e35c3cc50874ca5095d1067bd7" width={468} height={60} />
+        </div>
+        <div className="flex justify-center">
+          <AdBanner adKey="28b1ef1ed72a56336e840b4f6320c007" width={320} height={50} />
+        </div>
+        <div className="flex justify-center">
+          <AdBanner adKey="f8859593b9fae7463829294cd25ec77c" width={300} height={250} />
+        </div>
+        <div className="flex justify-center">
+          <AdBanner adKey="adac8595e5b09981e190ac3b9a784240" width={160} height={300} />
+        </div>
+        <div className="flex justify-center">
+          <AdBanner adKey="f879294844b6d212e1556d3aa4f17bf5" width={160} height={600} />
+        </div>
       </div>
     </div>
   );
@@ -45,6 +68,28 @@ export function ResourcesPage() {
             <p className="text-sm text-ink-500 dark:text-ink-400 mt-1">{r.desc}</p>
           </Link>
         ))}
+      </div>
+
+      {/* All Ad Banners Group */}
+      <div className="space-y-6 my-8">
+        <div className="flex justify-center">
+          <AdBanner adKey="c060f5177a7056171ced5eb7d122263b" width={728} height={90} />
+        </div>
+        <div className="flex justify-center">
+          <AdBanner adKey="a5c311e35c3cc50874ca5095d1067bd7" width={468} height={60} />
+        </div>
+        <div className="flex justify-center">
+          <AdBanner adKey="28b1ef1ed72a56336e840b4f6320c007" width={320} height={50} />
+        </div>
+        <div className="flex justify-center">
+          <AdBanner adKey="f8859593b9fae7463829294cd25ec77c" width={300} height={250} />
+        </div>
+        <div className="flex justify-center">
+          <AdBanner adKey="adac8595e5b09981e190ac3b9a784240" width={160} height={300} />
+        </div>
+        <div className="flex justify-center">
+          <AdBanner adKey="f879294844b6d212e1556d3aa4f17bf5" width={160} height={600} />
+        </div>
       </div>
     </div>
   );
