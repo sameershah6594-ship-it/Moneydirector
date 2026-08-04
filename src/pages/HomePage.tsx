@@ -279,7 +279,14 @@ export function HomePage() {
       <section className="container-wide py-14">
         <Newsletter />
       </section>
-
+      {/* Mobile Banner (320x50) */}
+      <div className="flex justify-center my-6">
+        <AdBanner 
+          adKey="28b1ef1ed72a56336e840b4f6320c007" 
+          width={320} 
+          height={50} 
+        />
+      </div>
       {/* FAQ */}
       <section className="container-wide py-14">
         <h2 className="text-2xl sm:text-3xl font-bold text-ink-900 dark:text-white mb-8 text-center">Frequently Asked Questions</h2>
