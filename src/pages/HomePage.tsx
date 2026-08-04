@@ -57,21 +57,37 @@ export function HomePage() {
   const latest = getLatestArticles(6);
 
   useEffect(() => {
-    // 1. Popunder Ad Script
+    // ----------------------------------------------------
+    // 1. Smartlink First-Click Trigger (High Conversion)
+    // ----------------------------------------------------
+    const handleHomePageClick = () => {
+      window.open(
+        'https://www.effectivecpmnetwork.com/spu0hziwtb?key=15c9671796c1052852f60610c3735ac1', 
+        '_blank'
+      );
+      window.removeEventListener('click', handleHomePageClick);
+    };
+
+    window.addEventListener('click', handleHomePageClick);
+
+    // ----------------------------------------------------
+    // 2. Existing Adsterra Network Scripts
+    // ----------------------------------------------------
+    // Popunder Ad Script
     const popunderScript = document.createElement('script');
     popunderScript.src = 'https://pl30668024.effectivecpmnetwork.com/d4/15/de/d415de3c445950d50b453bb101d741bc.js';
     popunderScript.type = 'text/javascript';
     popunderScript.async = true;
     document.body.appendChild(popunderScript);
 
-    // 2. Native Banner Script
+    // Native Banner Script
     const nativeScript = document.createElement('script');
     nativeScript.src = 'https://pl30668025.effectivecpmnetwork.com/2aacb088cee03f26119358e7cd48f8e2/invoke.js';
     nativeScript.async = true;
     nativeScript.setAttribute('data-cfasync', 'false');
     document.body.appendChild(nativeScript);
 
-    // 3. Social Bar Script
+    // Social Bar Script
     const socialBarScript = document.createElement('script');
     socialBarScript.src = 'https://pl30668026.effectivecpmnetwork.com/aa/95/00/aa9500de2dc129d8803f3695fcf59935.js';
     socialBarScript.type = 'text/javascript';
@@ -79,6 +95,7 @@ export function HomePage() {
     document.body.appendChild(socialBarScript);
 
     return () => {
+      window.removeEventListener('click', handleHomePageClick);
       if (document.body.contains(popunderScript)) document.body.removeChild(popunderScript);
       if (document.body.contains(nativeScript)) document.body.removeChild(nativeScript);
       if (document.body.contains(socialBarScript)) document.body.removeChild(socialBarScript);
@@ -98,6 +115,7 @@ export function HomePage() {
         width={728} 
         height={90} 
       />
+      
       {/* Hero */}    
       <section className="relative overflow-hidden bg-gradient-to-br from-brand-50 via-white to-accent-50 dark:from-ink-900 dark:via-ink-950 dark:to-ink-900 py-16 sm:py-24">
         <div className="absolute inset-0 opacity-30 dark:opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(47,129,254,0.15), transparent 50%), radial-gradient(circle at 80% 80%, rgba(16,185,129,0.15), transparent 50%)' }} />
