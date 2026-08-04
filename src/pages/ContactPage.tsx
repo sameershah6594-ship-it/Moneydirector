@@ -1,3 +1,4 @@
+import AdBanner from '@/components/AdBanner';
 import { useState } from 'react';
 import { useDocumentMeta } from '@/hooks/useDocumentMeta';
 import { Mail, MessageSquare, Check, Send } from 'lucide-react';
@@ -36,6 +37,28 @@ export function ContactPage() {
         <div className="space-y-4">
           <div className="card p-6"><Mail className="text-brand-500 mb-2" /><h3 className="font-bold text-ink-900 dark:text-white text-sm">Email</h3><p className="text-sm text-ink-500 mt-1">contact@moneydirector.com</p></div>
           <div className="card p-6"><MessageSquare className="text-accent-500 mb-2" /><h3 className="font-bold text-ink-900 dark:text-white text-sm">Feedback</h3><p className="text-sm text-ink-500 mt-1">We welcome feedback on our articles and calculators to help us improve.</p></div>
+        </div>
+      </div>
+
+      {/* All Ad Banners Group */}
+      <div className="space-y-6 my-8">
+        <div className="flex justify-center">
+          <AdBanner adKey="c060f5177a7056171ced5eb7d122263b" width={728} height={90} />
+        </div>
+        <div className="flex justify-center">
+          <AdBanner adKey="a5c311e35c3cc50874ca5095d1067bd7" width={468} height={60} />
+        </div>
+        <div className="flex justify-center">
+          <AdBanner adKey="28b1ef1ed72a56336e840b4f6320c007" width={320} height={50} />
+        </div>
+        <div className="flex justify-center">
+          <AdBanner adKey="f8859593b9fae7463829294cd25ec77c" width={300} height={250} />
+        </div>
+        <div className="flex justify-center">
+          <AdBanner adKey="adac8595e5b09981e190ac3b9a784240" width={160} height={300} />
+        </div>
+        <div className="flex justify-center">
+          <AdBanner adKey="f879294844b6d212e1556d3aa4f17bf5" width={160} height={600} />
         </div>
       </div>
     </div>
