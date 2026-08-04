@@ -1,4 +1,4 @@
-import AdBanner from '../components/AdBanner';
+import AdBanner from '@/components/AdBanner';
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Search, TrendingUp, TrendingDown, Calculator, ShieldCheck, Target, Award, Users, BookOpen, ArrowRight, Check, Clock } from 'lucide-react';
