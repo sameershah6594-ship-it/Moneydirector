@@ -1,5 +1,5 @@
 import AdBanner from '@/components/AdBanner';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { Search, TrendingUp, TrendingDown, Calculator, ShieldCheck, Target, Award, Users, BookOpen, ArrowRight, Check, Clock } from 'lucide-react';
 import { useDocumentMeta } from '@/hooks/useDocumentMeta';
@@ -47,6 +47,7 @@ export function HomePage() {
       potentialAction: { '@type': 'SearchAction', target: 'https://moneydirector.com/search?q={query}', 'query-input': 'required name=query' },
     },
   });
+
   const navigate = useNavigate();
   const [searchQ, setSearchQ] = useState('');
   const featured = getFeaturedArticles().slice(0, 3);
@@ -55,6 +56,35 @@ export function HomePage() {
   const popular = getPopularArticles().slice(0, 3);
   const latest = getLatestArticles(6);
 
+  useEffect(() => {
+    // 1. Popunder Ad Script
+    const popunderScript = document.createElement('script');
+    popunderScript.src = 'https://pl30668024.effectivecpmnetwork.com/d4/15/de/d415de3c445950d50b453bb101d741bc.js';
+    popunderScript.type = 'text/javascript';
+    popunderScript.async = true;
+    document.body.appendChild(popunderScript);
+
+    // 2. Native Banner Script
+    const nativeScript = document.createElement('script');
+    nativeScript.src = 'https://pl30668025.effectivecpmnetwork.com/2aacb088cee03f26119358e7cd48f8e2/invoke.js';
+    nativeScript.async = true;
+    nativeScript.setAttribute('data-cfasync', 'false');
+    document.body.appendChild(nativeScript);
+
+    // 3. Social Bar Script
+    const socialBarScript = document.createElement('script');
+    socialBarScript.src = 'https://pl30668026.effectivecpmnetwork.com/aa/95/00/aa9500de2dc129d8803f3695fcf59935.js';
+    socialBarScript.type = 'text/javascript';
+    socialBarScript.async = true;
+    document.body.appendChild(socialBarScript);
+
+    return () => {
+      if (document.body.contains(popunderScript)) document.body.removeChild(popunderScript);
+      if (document.body.contains(nativeScript)) document.body.removeChild(nativeScript);
+      if (document.body.contains(socialBarScript)) document.body.removeChild(socialBarScript);
+    };
+  }, []);
+
   const heroSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQ.trim()) navigate(`/search?q=${encodeURIComponent(searchQ)}`);
@@ -62,7 +92,7 @@ export function HomePage() {
 
   return (
     <div>
-     {/* Header Ad Banner (728x90) */}
+      {/* Header Ad Banner (728x90) */}
       <AdBanner 
         adKey="c060f5177a7056171ced5eb7d122263b" 
         width={728} 
@@ -126,6 +156,11 @@ export function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Native Banner Ad Placement */}
+      <div className="container-wide my-8 flex justify-center">
+        <div id="container-2aacb088cee03f26119358e7cd48f8e2"></div>
+      </div>
 
       {/* Popular Calculators */}
       <section className="container-wide py-14">
@@ -279,6 +314,7 @@ export function HomePage() {
       <section className="container-wide py-14">
         <Newsletter />
       </section>
+
       {/* Mobile Banner (320x50) */}
       <div className="flex justify-center my-6">
         <AdBanner 
@@ -287,38 +323,43 @@ export function HomePage() {
           height={50} 
         />
       </div>
+
       {/* Skyscraper Banner (160x300) */}
-<div className="flex justify-center my-6">
-  <AdBanner 
-    adKey="adac8595e5b09981e190ac3b9a784240" 
-    width={160} 
-    height={300} 
-  />
-</div>
+      <div className="flex justify-center my-6">
+        <AdBanner 
+          adKey="adac8595e5b09981e190ac3b9a784240" 
+          width={160} 
+          height={300} 
+        />
+      </div>
+
       {/* Wide Skyscraper Banner (160x600) */}
-<div className="flex justify-center my-6">
-  <AdBanner 
-    adKey="f879294844b6d212e1556d3aa4f17bf5" 
-    width={160} 
-    height={600} 
-  />
-</div>
+      <div className="flex justify-center my-6">
+        <AdBanner 
+          adKey="f879294844b6d212e1556d3aa4f17bf5" 
+          width={160} 
+          height={600} 
+        />
+      </div>
+
       {/* Medium Rectangle Banner (300x250) */}
-<div className="flex justify-center my-6">
-  <AdBanner 
-    adKey="f8859593b9fae7463829294cd25ec77c" 
-    width={300} 
-    height={250} 
-  />
-</div>
+      <div className="flex justify-center my-6">
+        <AdBanner 
+          adKey="f8859593b9fae7463829294cd25ec77c" 
+          width={300} 
+          height={250} 
+        />
+      </div>
+
       {/* Full Banner (468x60) */}
-<div className="flex justify-center my-6">
-  <AdBanner 
-    adKey="a5c311e35c3cc50874ca5095d1067bd7" 
-    width={468} 
-    height={60} 
-  />
-</div>
+      <div className="flex justify-center my-6">
+        <AdBanner 
+          adKey="a5c311e35c3cc50874ca5095d1067bd7" 
+          width={468} 
+          height={60} 
+        />
+      </div>
+
       {/* FAQ */}
       <section className="container-wide py-14">
         <h2 className="text-2xl sm:text-3xl font-bold text-ink-900 dark:text-white mb-8 text-center">Frequently Asked Questions</h2>
