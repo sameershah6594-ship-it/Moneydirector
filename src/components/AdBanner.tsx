@@ -10,33 +10,52 @@ export default function AdBanner({ adKey, width, height }: AdBannerProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (containerRef.current) {
-      containerRef.current.innerHTML = '';
+    const container = containerRef.current;
+    if (!container) return;
 
-      const confScript = document.createElement('script');
-      confScript.type = 'text/javascript';
-      confScript.text = `
-        atOptions = {
-          'key' : '${adKey}',
-          'format' : 'iframe',
-          'height' : ${height},
-          'width' : ${width},
-          'params' : {}
-        };
-      `;
+    // Clear previous container content
+    container.innerHTML = '';
 
-      const invokeScript = document.createElement('script');
-      invokeScript.type = 'text/javascript';
-      invokeScript.src = `//www.topcreativeformat.com/${adKey}/invoke.js`;
+    // Create an isolated iframe to prevent global atOptions variables from overwriting each other
+    const iframe = document.createElement('iframe');
+    iframe.width = `${width}`;
+    iframe.height = `${height}`;
+    iframe.style.border = 'none';
+    iframe.style.overflow = 'hidden';
+    iframe.scrolling = 'no';
 
-      containerRef.current.appendChild(confScript);
-      containerRef.current.appendChild(invokeScript);
+    container.appendChild(iframe);
+
+    const iframeDoc = iframe.contentWindow?.document;
+    if (iframeDoc) {
+      iframeDoc.open();
+      iframeDoc.write(`
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <style>body { margin: 0; padding: 0; display: flex; justify-content: center; align-items: center; }</style>
+          </head>
+          <body>
+            <script type="text/javascript">
+              atOptions = {
+                'key' : '${adKey}',
+                'format' : 'iframe',
+                'height' : ${height},
+                'width' : ${width},
+                'params' : {}
+              };
+            </script>
+            <script type="text/javascript" src="https://www.highperformanceformat.com/${adKey}/invoke.js"></script>
+          </body>
+        </html>
+      `);
+      iframeDoc.close();
     }
   }, [adKey, width, height]);
 
   return (
-    <div className="my-6 flex justify-center items-center overflow-hidden">
-      <div ref={containerRef}></div>
+    <div className="my-6 flex justify-center items-center overflow-hidden min-h-[50px]">
+      <div ref={containerRef} style={{ width: `${width}px`, height: `${height}px` }} />
     </div>
   );
 }
