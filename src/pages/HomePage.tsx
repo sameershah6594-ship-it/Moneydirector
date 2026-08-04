@@ -287,6 +287,38 @@ export function HomePage() {
           height={50} 
         />
       </div>
+      {/* Skyscraper Banner (160x300) */}
+<div className="flex justify-center my-6">
+  <AdBanner 
+    adKey="adac8595e5b09981e190ac3b9a784240" 
+    width={160} 
+    height={300} 
+  />
+</div>
+      {/* Wide Skyscraper Banner (160x600) */}
+<div className="flex justify-center my-6">
+  <AdBanner 
+    adKey="f879294844b6d212e1556d3aa4f17bf5" 
+    width={160} 
+    height={600} 
+  />
+</div>
+      {/* Medium Rectangle Banner (300x250) */}
+<div className="flex justify-center my-6">
+  <AdBanner 
+    adKey="f8859593b9fae7463829294cd25ec77c" 
+    width={300} 
+    height={250} 
+  />
+</div>
+      {/* Full Banner (468x60) */}
+<div className="flex justify-center my-6">
+  <AdBanner 
+    adKey="a5c311e35c3cc50874ca5095d1067bd7" 
+    width={468} 
+    height={60} 
+  />
+</div>
       {/* FAQ */}
       <section className="container-wide py-14">
         <h2 className="text-2xl sm:text-3xl font-bold text-ink-900 dark:text-white mb-8 text-center">Frequently Asked Questions</h2>
