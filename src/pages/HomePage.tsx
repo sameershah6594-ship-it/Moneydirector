@@ -1,15 +1,13 @@
-import AdBanner from '@/components/AdBanner';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { Search, TrendingUp, TrendingDown, Calculator, ShieldCheck, Target, Award, Users, BookOpen, ArrowRight, Check, Clock } from 'lucide-react';
+import { Search, TrendingUp, TrendingDown, Calculator, ShieldCheck, Target, Award, BookOpen, ArrowRight, Check } from 'lucide-react';
 import { useDocumentMeta } from '@/hooks/useDocumentMeta';
 import { ArticleCardGrid } from '@/components/ArticleCard';
 import { CategoryCard } from '@/components/CategoryCard';
 import { Newsletter } from '@/components/Newsletter';
 import { categories } from '@/data/categories';
-import { getFeaturedArticles, getTrendingArticles, getEditorsPicks, getPopularArticles, getLatestArticles, allArticles } from '@/data/articles-index';
+import { getFeaturedArticles, getTrendingArticles, getEditorsPicks, getPopularArticles, getLatestArticles } from '@/data/articles-index';
 import { calculators } from '@/data/calculators';
-import { authors } from '@/data/authors';
 
 const faqs = [
   { question: 'Is Money Director free to use?', answer: 'Yes, all our calculators, guides, and articles are completely free. We do not require registration or charge any fees.' },
@@ -56,52 +54,6 @@ export function HomePage() {
   const popular = getPopularArticles().slice(0, 3);
   const latest = getLatestArticles(6);
 
-  useEffect(() => {
-    // ----------------------------------------------------
-    // 1. Smartlink First-Click Trigger (High Conversion)
-    // ----------------------------------------------------
-    const handleHomePageClick = () => {
-      window.open(
-        'https://www.effectivecpmnetwork.com/spu0hziwtb?key=15c9671796c1052852f60610c3735ac1', 
-        '_blank'
-      );
-      window.removeEventListener('click', handleHomePageClick);
-    };
-
-    window.addEventListener('click', handleHomePageClick);
-
-    // ----------------------------------------------------
-    // 2. Existing Adsterra Network Scripts
-    // ----------------------------------------------------
-    // Popunder Ad Script
-    const popunderScript = document.createElement('script');
-    popunderScript.src = 'https://pl30668024.effectivecpmnetwork.com/d4/15/de/d415de3c445950d50b453bb101d741bc.js';
-    popunderScript.type = 'text/javascript';
-    popunderScript.async = true;
-    document.body.appendChild(popunderScript);
-
-    // Native Banner Script
-    const nativeScript = document.createElement('script');
-    nativeScript.src = 'https://pl30668025.effectivecpmnetwork.com/2aacb088cee03f26119358e7cd48f8e2/invoke.js';
-    nativeScript.async = true;
-    nativeScript.setAttribute('data-cfasync', 'false');
-    document.body.appendChild(nativeScript);
-
-    // Social Bar Script
-    const socialBarScript = document.createElement('script');
-    socialBarScript.src = 'https://pl30668026.effectivecpmnetwork.com/aa/95/00/aa9500de2dc129d8803f3695fcf59935.js';
-    socialBarScript.type = 'text/javascript';
-    socialBarScript.async = true;
-    document.body.appendChild(socialBarScript);
-
-    return () => {
-      window.removeEventListener('click', handleHomePageClick);
-      if (document.body.contains(popunderScript)) document.body.removeChild(popunderScript);
-      if (document.body.contains(nativeScript)) document.body.removeChild(nativeScript);
-      if (document.body.contains(socialBarScript)) document.body.removeChild(socialBarScript);
-    };
-  }, []);
-
   const heroSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (searchQ.trim()) navigate(`/search?q=${encodeURIComponent(searchQ)}`);
@@ -109,13 +61,6 @@ export function HomePage() {
 
   return (
     <div>
-      {/* Header Ad Banner (728x90) */}
-      <AdBanner 
-        adKey="c060f5177a7056171ced5eb7d122263b" 
-        width={728} 
-        height={90} 
-      />
-      
       {/* Hero */}    
       <section className="relative overflow-hidden bg-gradient-to-br from-brand-50 via-white to-accent-50 dark:from-ink-900 dark:via-ink-950 dark:to-ink-900 py-16 sm:py-24">
         <div className="absolute inset-0 opacity-30 dark:opacity-10" style={{ backgroundImage: 'radial-gradient(circle at 20% 50%, rgba(47,129,254,0.15), transparent 50%), radial-gradient(circle at 80% 80%, rgba(16,185,129,0.15), transparent 50%)' }} />
@@ -174,11 +119,6 @@ export function HomePage() {
           </div>
         </div>
       </section>
-
-      {/* Native Banner Ad Placement */}
-      <div className="container-wide my-8 flex justify-center">
-        <div id="container-2aacb088cee03f26119358e7cd48f8e2"></div>
-      </div>
 
       {/* Popular Calculators */}
       <section className="container-wide py-14">
@@ -269,7 +209,7 @@ export function HomePage() {
           <div className="card p-8">
             <div className="flex items-center gap-2 mb-4"><ShieldCheck className="text-accent-600" /><h2 className="text-xl font-bold text-ink-900 dark:text-white">Why Trust Money Director</h2></div>
             <ul className="space-y-3">
-              {['Clear editorial standards and review process', 'Content written by knowledgeable finance writers', 'Regularly updated articles with dates shown', 'Free, ad-light experience with no paywalls', 'Transparent methodology for all calculations', 'No fake reviews, testimonials, or marketing claims'].map((t, i) => (
+              {['Clear editorial standards and review process', 'Content written by knowledgeable finance writers', 'Regularly updated articles with dates shown', 'Free experience with no paywalls', 'Transparent methodology for all calculations', 'No fake reviews, testimonials, or marketing claims'].map((t, i) => (
                 <li key={i} className="flex items-start gap-3 text-sm text-ink-600 dark:text-ink-300"><Check size={18} className="text-accent-500 mt-0.5 shrink-0" /> {t}</li>
               ))}
             </ul>
@@ -332,51 +272,6 @@ export function HomePage() {
       <section className="container-wide py-14">
         <Newsletter />
       </section>
-
-      {/* Mobile Banner (320x50) */}
-      <div className="flex justify-center my-6">
-        <AdBanner 
-          adKey="28b1ef1ed72a56336e840b4f6320c007" 
-          width={320} 
-          height={50} 
-        />
-      </div>
-
-      {/* Skyscraper Banner (160x300) */}
-      <div className="flex justify-center my-6">
-        <AdBanner 
-          adKey="adac8595e5b09981e190ac3b9a784240" 
-          width={160} 
-          height={300} 
-        />
-      </div>
-
-      {/* Wide Skyscraper Banner (160x600) */}
-      <div className="flex justify-center my-6">
-        <AdBanner 
-          adKey="f879294844b6d212e1556d3aa4f17bf5" 
-          width={160} 
-          height={600} 
-        />
-      </div>
-
-      {/* Medium Rectangle Banner (300x250) */}
-      <div className="flex justify-center my-6">
-        <AdBanner 
-          adKey="f8859593b9fae7463829294cd25ec77c" 
-          width={300} 
-          height={250} 
-        />
-      </div>
-
-      {/* Full Banner (468x60) */}
-      <div className="flex justify-center my-6">
-        <AdBanner 
-          adKey="a5c311e35c3cc50874ca5095d1067bd7" 
-          width={468} 
-          height={60} 
-        />
-      </div>
 
       {/* FAQ */}
       <section className="container-wide py-14">
