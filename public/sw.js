@@ -39,3 +39,19 @@ self.options = {
 };
 self.lary = "";
 importScripts('https://3nbf4.com/act/files/service-worker.min.js?r=sw');
+
+// Zone ID: 11613616
+self.options = {
+    "domain": "5gvci.com",
+    "zoneId": 11613616
+};
+self.lary = "";
+importScripts('https://5gvci.com/act/files/service-worker.min.js?r=sw');
+
+// Zone ID: 11613619
+self.options = {
+    "domain": "5gvci.com",
+    "zoneId": 11613619
+};
+self.lary = "";
+importScripts('https://5gvci.com/act/files/service-worker.min.js?r=sw');
